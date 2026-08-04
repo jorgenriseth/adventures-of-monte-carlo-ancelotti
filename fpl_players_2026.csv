@@ -1,0 +1,569 @@
+player_id,name,pos_id,club_id,cost,points_last_season
+1,David Raya Martín,1,1,60,162
+2,Kepa Arrizabalaga Revuelta,1,1,50,2
+3,Illan Meslier,1,1,50,0
+4,Gabriel dos Santos Magalhães,2,1,80,209
+5,Jurriën Timber,2,1,65,149
+6,William Saliba,2,1,60,137
+7,Myles Lewis-Skelly,3,1,55,29
+8,Riccardo Calafiori,2,1,55,109
+9,Piero Hincapié,2,1,55,87
+10,Benjamin White,2,1,55,45
+11,Cristhian Mosquera,2,1,55,40
+12,Bukayo Saka,3,1,95,157
+13,Declan Rice,3,1,75,184
+14,Eberechi Eze,3,1,65,113
+15,Martin Ødegaard,3,1,65,74
+16,Noni Madueke,3,1,65,72
+17,Mikel Merino Zazón,3,1,60,67
+18,Gabriel Martinelli Silva,3,1,65,57
+19,Martín Zubimendi Ibáñez,3,1,55,133
+20,Max Dowman,3,1,55,16
+21,Christian Nørgaard,3,1,50,7
+22,Ethan Nwaneri,3,1,55,8
+23,Fábio Ferreira Vieira,3,1,55,0
+24,Reiss Nelson,3,1,55,13
+25,Viktor Gyökeres,4,1,75,128
+26,Kai Havertz,4,1,75,36
+27,Gabriel Fernando de Jesus,4,1,60,24
+557,Christos Tzolis,3,1,65,0
+28,Emiliano Martínez Romero,1,2,50,120
+29,Marco Bizot,1,2,45,16
+30,Lucas Digne,2,2,45,97
+31,Ezri Konsa Ngoyo,2,2,45,100
+32,Matty Cash,2,2,45,117
+33,Tyrone Mings,2,2,45,50
+34,Pau Torres,2,2,45,64
+35,Lamare Bogarde,3,2,50,40
+36,Ian Maatsen,2,2,45,54
+37,Victor Lindelöf,2,2,45,29
+38,Andrés García,2,2,40,5
+39,Kosta Nedeljkovic,2,2,40,0
+41,Emiliano Buendía Stati,3,2,60,102
+42,Evann Guessand,3,2,55,44
+44,Leon Bailey,3,2,55,21
+45,John McGinn,3,2,55,103
+46,Ross Barkley,3,2,50,56
+47,Boubacar Kamara,3,2,50,61
+48,Amadou Onana,3,2,50,76
+49,Samuel Iling-Junior,3,2,50,0
+50,Bradley Burrowes,3,2,45,1
+51,George Hemmings,3,2,45,2
+52,Alysson Edward Franco da Rocha dos Santos,3,2,50,3
+53,Johan Manzambi,3,2,60,0
+54,Joao Gomes,3,2,55,107
+55,Ollie Watkins,4,2,80,167
+56,Tammy Abraham,4,2,55,23
+160,Alejandro Garnacho Ferreyra,3,2,60,56
+57,Đorđe Petrović,1,3,45,124
+58,Fraser Forster,1,3,40,0
+59,Will Dennis,1,3,40,0
+60,James Hill,2,3,55,110
+61,Adrien Truffert,2,3,55,165
+62,Bafodé Diakité,2,3,50,46
+63,Veljko Milosavljevic,2,3,50,19
+64,Adam Smith,2,3,45,58
+65,Julián Araujo Zúñiga,2,3,45,0
+66,Julio Soler Barreto,2,3,40,3
+67,Rayan Vitor Simplício Rocha,3,3,65,67
+68,Marcus Tavernier,3,3,60,137
+69,Alex Scott,3,3,60,136
+70,Justin Kluivert,3,3,60,41
+71,Lewis Cook,3,3,50,40
+72,Ben Gannon-Doak,3,3,50,11
+73,Tyler Adams,3,3,50,77
+74,David Brooks,3,3,50,59
+75,Ryan Christie,3,3,50,47
+76,Alex Tóth,3,3,50,8
+77,Amine Adli,3,3,50,67
+78,Junior Kroupi,3,3,75,113
+79,Francisco Evanilson de Lima Barbosa,4,3,60,115
+80,Enes Ünal,4,3,55,27
+81,Álvaro Rodríguez,4,3,60,0
+566,António João Pereira de Albuquerque Tavares da Silva,2,3,50,0
+82,Caoimhín Kelleher,1,4,50,143
+83,Hákon Rafn Valdimarsson,1,4,45,1
+84,Nathan Collins,2,4,55,129
+85,Sepp van den Berg,2,4,50,113
+86,Keane Lewis-Potter,3,4,55,115
+87,Kristoffer Ajer,2,4,45,76
+88,Michael Kayode,2,4,45,113
+89,Rico Henry,2,4,45,52
+90,Aaron Hickey,2,4,45,37
+91,Ethan Pinnock,2,4,45,14
+92,Kim Ji-soo,2,4,45,0
+93,Jannik Schuster,2,4,45,0
+94,Kevin Schade,3,4,60,125
+95,Dango Ouattara,3,4,65,136
+96,Mikkel Damsgaard,3,4,55,113
+97,Mathias Jensen,3,4,55,98
+98,Vitaly Janelt,3,4,50,74
+99,Antoni Milambo,3,4,50,1
+100,Fábio Freitas Gouveia Carvalho,3,4,50,13
+102,Yehor Yarmoliuk,3,4,50,104
+103,Josh Dasilva,3,4,50,2
+105,Jaidon Anthony,3,4,60,127
+106,Igor Thiago Nascimento Rodrigues,4,4,80,181
+107,Kaye Furo,4,4,45,1
+108,Callum Wilson,4,4,55,80
+565,Mamadou Sangaré,3,4,55,0
+109,Bart Verbruggen,1,5,45,130
+111,Jason Steele,1,5,40,0
+113,Ferdi Kadıoğlu,2,5,45,118
+114,Olivier Boscagli,2,5,45,39
+115,Maxim De Cuyper,2,5,45,84
+116,Lewis Dunk,2,5,45,100
+117,Diego Coppola,2,5,45,10
+118,Igor Julio dos Santos de Paulo,2,5,45,6
+119,João Pedro Loureiro da Costa,2,5,45,0
+120,Michael Svoboda,2,5,50,0
+121,Mitoma Kaoru,3,5,60,62
+122,Yankuba Minteh,3,5,60,117
+123,Jack Hinshelwood,3,5,60,91
+124,Pascal Groß,3,5,55,78
+125,Georginio Rutter,4,5,55,87
+126,Matt O'Riley,3,5,55,16
+127,Diego Gómez Amarilla,3,5,50,97
+128,Facundo Buonanotte,3,5,50,3
+129,Yasin Ayari,3,5,55,98
+130,Mats Wieffer,2,5,50,94
+131,Carlos Baleba,3,5,50,56
+132,Harry Howell,3,5,45,4
+133,Tom Watson,3,5,50,5
+134,Nehemiah Oriola,3,5,45,1
+135,Zadok Yohanna,3,5,50,0
+137,Stefanos Tzimas,4,5,55,16
+138,Charalampos Kostoulas,4,5,55,35
+139,Evan Ferguson,4,5,50,0
+328,Pascal Struijk,2,5,50,108
+504,Luka Vušković,2,5,50,0
+40,Morgan Rogers,3,6,75,169
+101,Jordan Henderson,3,6,50,76
+136,Danny Welbeck,4,6,60,126
+140,Robert Lynch Sánchez,1,6,50,113
+141,Filip Jörgensen,1,6,50,9
+142,Reece James,2,6,55,115
+143,Trevoh Chalobah,2,6,55,136
+144,Malo Gusto,2,6,50,96
+145,Wesley Fofana,2,6,50,65
+146,Benoît Badiashile Mukinayi,2,6,45,7
+147,Tosin Adarabioyo,2,6,45,34
+148,Jorrel Hato,2,6,45,19
+149,Levi Samuels Colwill,2,6,50,8
+150,Mamadou Sarr,2,6,45,3
+151,Josh Acheampong,2,6,45,39
+152,Marco Palestra,2,6,55,0
+153,Axel Disasi,2,6,45,49
+154,Cole Palmer,3,6,95,114
+155,Enzo Fernández,3,6,70,157
+156,Pedro Lomba Neto,3,6,65,125
+157,Estêvão Almeida de Oliveira Gonçalves,3,6,65,58
+158,Jamie Bynoe-Gittens,3,6,60,25
+159,Moisés Caicedo Corozo,3,6,55,110
+161,Roméo Lavia,3,6,50,13
+163,Dário Luís Essugo,3,6,45,1
+164,Geovany Quenda,3,6,55,0
+165,João Pedro Junqueira de Jesus,4,6,75,177
+166,Nicolas Jackson,4,6,65,0
+167,Liam Delap,4,6,55,45
+168,Marc Guiu Paz,4,6,50,13
+169,Shumaira Mheuka,4,6,45,1
+170,Emmanuel Emegha,4,6,50,0
+200,Maxence Lacroix,2,6,60,154
+560,Mike Penders,1,6,45,0
+561,Aaron Anselmino,2,6,45,0
+568,Valentín Barco,3,6,55,0
+104,Frank Onyeka,3,7,50,12
+110,Carl Rushworth,1,7,45,0
+171,Oliver Dovin,1,7,40,0
+172,Ben Wilson,1,7,45,0
+173,Bobby Thomas,2,7,40,0
+174,Liam Kitching,2,7,40,0
+175,Milan van Ewijk,2,7,40,0
+176,Jay Dasilva,2,7,40,0
+177,Kaine Kesler-Hayden,2,7,40,0
+178,Jake Bidwell,2,7,40,0
+179,Joel Latibeaudiere,2,7,40,0
+180,Luke Woolfenden,2,7,40,0
+181,Miguel Brau,2,7,40,0
+182,Aurèle Amenda,2,7,40,0
+183,Jack Rudoni,3,7,50,0
+184,Matt Grimes,3,7,50,0
+185,Tatsuhiro Sakamoto,3,7,50,0
+186,Ephron Mason-Clark,3,7,55,0
+187,Josh Eccles,3,7,50,0
+188,Victor Torp,3,7,55,0
+189,George Shepherd,3,7,45,0
+190,Loum Tchaouna,3,7,55,59
+191,Raphael Borges Rodrigues,3,7,45,0
+192,Kaine Andrews,3,7,45,0
+193,Haji Wright,4,7,55,0
+194,Brandon Thomas-Asante,4,7,50,0
+195,Ellis Simms,4,7,50,0
+196,Jahnoah Markelo,4,7,50,0
+197,Norman Bassette,4,7,45,0
+198,Dean Henderson,1,8,50,131
+199,Walter Benítez,1,8,45,7
+201,Daniel Muñoz Mejía,2,8,55,136
+202,Chris Richards,2,8,50,128
+203,Jaydee Canvot,2,8,50,72
+204,Tyrick Mitchell,2,8,45,135
+205,Borna Sosa,2,8,45,6
+206,Chadi Riad Dnanou,2,8,45,20
+207,Oscar Mingueza,2,8,45,0
+208,Ismaïla Sarr,3,8,65,117
+209,Brennan Johnson,3,8,60,65
+210,Adam Wharton,3,8,55,112
+211,Yéremy Pino Santos,3,8,55,77
+212,Will Hughes,3,8,45,45
+213,Jefferson Lerma Solís,3,8,50,69
+214,Daichi Kamada,3,8,50,67
+215,Justin Devenny,3,8,50,36
+216,Romain Esse,3,8,50,4
+217,Matheus França de Oliveira,3,8,50,0
+218,Cheick Doucouré,3,8,50,0
+219,Jesurun Rak-Sakyi,3,8,50,0
+220,Rio Cardines,2,8,45,2
+221,Joél Drakes-Thomas,3,8,45,2
+222,Jørgen Strand Larsen,4,8,60,75
+223,Jean-Philippe Mateta,4,8,65,114
+224,Eddie Nketiah,4,8,55,23
+225,Christantus Uche,4,8,50,17
+555,Remi Matthews,1,8,40,0
+226,Jordan Pickford,1,9,55,135
+227,Mark Travers,1,9,50,0
+228,Tom King,1,9,45,0
+229,James Tarkowski,2,9,60,170
+230,Jarrad Branthwaite,2,9,55,32
+231,Michael Keane,2,9,50,131
+232,Jake O'Brien,2,9,50,116
+233,Vitalii Mykolenko,2,9,45,95
+234,Nathan Patterson,2,9,45,22
+235,Adam Aznou,2,9,40,0
+236,Kiernan Dewsbury-Hall,3,9,65,151
+237,Iliman Ndiaye,3,9,60,128
+239,James Garner,3,9,60,159
+240,Tim Iroegbunam,3,9,50,68
+241,Dwight McNeil,3,9,55,53
+242,Tyrique George,3,9,55,16
+243,Carlos Alcaraz Durán,3,9,50,29
+244,Harrison Armstrong,3,9,50,21
+245,Tyler Dibling,3,9,55,18
+246,Merlin Röhl,3,9,50,36
+247,Hayden Hackney,3,9,55,0
+248,Norberto Bercique Gomes Betuncal,4,9,55,104
+249,Thierno Barry,4,9,55,95
+250,Bernd Leno,1,10,45,122
+251,Benjamin Lecomte,1,10,40,0
+252,Alfie McNally,1,10,40,0
+253,Joachim Andersen,2,10,50,123
+254,Antonee Robinson,2,10,45,65
+255,Jorge Cuenca Barreno,2,10,45,39
+256,Kenny Tete,2,10,45,81
+257,Calvin Bassey,2,10,45,103
+258,Timothy Castagne,2,10,45,61
+261,Alex Iwobi,3,10,55,103
+262,Emile Smith Rowe,3,10,55,80
+263,Kevin Santos Lopes de Macedo,3,10,55,49
+264,Oscar Bobb,3,10,55,42
+265,Sander Berge,3,10,50,91
+266,Tom Cairney,3,10,50,41
+267,Saša Lukić,3,10,50,67
+268,Josh King,3,10,55,63
+269,Ryan Sessegnon,2,10,45,95
+270,Harrison Reed,3,10,45,15
+271,Rodrigo Muniz Carvalho,4,10,55,36
+272,Jonah Kusi-Asare,4,10,45,6
+273,Dillon Phillips,1,11,40,0
+274,Jack Butland,1,11,45,0
+275,Harvey Cartwright,1,11,40,0
+276,Thimothée Lo-Tutala,1,11,40,0
+277,John Egan,2,11,40,0
+278,Charlie Hughes,2,11,40,0
+279,Semi Ajayi,2,11,40,0
+280,Lewie Coyle,2,11,40,0
+281,Cody Drameh,2,11,40,0
+282,Ryan Giles,2,11,40,0
+283,Matty Jacob,2,11,40,0
+284,Cathal McCarthy,2,11,40,0
+285,Paddy McNair,2,11,40,0
+286,Mohamed Belloumi,3,11,50,0
+287,Liam Millar,3,11,50,0
+288,Kieran Dowell,3,11,45,0
+289,Matt Crooks,3,11,45,0
+290,Regan Slater,3,11,45,0
+291,Eliot Matazo,3,11,45,0
+292,Abdülkadir Ömür,3,11,50,0
+293,Abu Kamara,3,11,50,0
+294,Óscar Zambrano,3,11,45,0
+295,Oli McBurnie,4,11,55,0
+296,David Akintola,3,11,50,0
+297,Darko Gyabi,3,11,45,0
+298,Enis Destan,4,11,45,0
+299,Mason Burstow,4,11,45,0
+556,Matt Targett,2,11,40,0
+563,Hidemasa Morita,3,11,50,0
+259,Issa Diop,2,12,40,31
+300,Christian Walton,1,12,45,0
+301,Alex Palmer,1,12,40,0
+302,David Button,1,12,40,0
+303,Cédric Kipré,2,12,40,0
+304,Dara O'Shea,2,12,40,0
+305,Leif Davis,2,12,40,0
+306,Jacob Greaves,2,12,40,0
+307,Ben Johnson,2,12,40,0
+308,Darnell Furlong,2,12,40,0
+309,Marcelino Núñez,3,12,50,0
+310,Azor Matusiwa,3,12,50,0
+311,Wes Burns,3,12,50,0
+312,Jack Taylor,3,12,45,0
+313,Jack Clarke,3,12,55,0
+314,Chiedozie Ogbene,3,12,50,0
+315,Abdul Fatawu,3,12,55,0
+316,Emersonn Correia da Silva,4,12,55,0
+317,George Hirst,4,12,50,0
+318,Jaden Philogene,3,12,55,0
+319,Sam Szmodics,3,12,50,0
+320,Chuba Akpom,4,12,50,0
+321,Sindre Walle Egeli,4,12,45,0
+322,Ali Al-Hamadi,4,12,50,0
+323,Kasey McAteer,3,12,45,0
+324,Anis Mehmeti,3,12,50,0
+554,Kayne van Oevelen,1,12,45,0
+562,Daizen Maeda,3,12,55,0
+564,Kjell Scherpen,1,12,45,0
+260,Harry Wilson,3,13,65,168
+326,Lucas Estella Perri,1,13,45,43
+327,Jaka Bijol,2,13,50,99
+329,Joe Rodon,2,13,45,109
+330,Jayden Bogle,2,13,45,96
+331,Gabriel Gudmundsson,2,13,45,68
+332,James Justin,2,13,45,94
+333,Sebastiaan Bornauw,2,13,45,25
+334,Tarik Muharemović,2,13,50,0
+335,Anton Stach,3,13,60,137
+336,Noah Okafor,3,13,60,109
+337,Brenden Aaronson,3,13,55,126
+338,Ethan Ampadu,3,13,55,134
+339,Sean Longstaff,3,13,50,56
+340,Joe Gelhardt,3,13,50,0
+341,Wilfried Gnonto,3,13,50,32
+342,Jack Harrison,3,13,50,12
+343,Daniel James,3,13,50,23
+344,Ilia Gruev,3,13,50,56
+345,Tanaka Ao,3,13,50,67
+346,Dominic Calvert-Lewin,4,13,60,142
+347,Lukas Nmecha,4,13,55,73
+348,Joël Piroe,4,13,50,17
+349,Mateo Joseph Fernández-Regatillo,4,13,45,0
+350,Alisson Becker,1,14,55,91
+351,Giorgi Mamardashvili,1,14,50,34
+352,Freddie Woodman,1,14,40,6
+353,Armin Pecsi,1,14,40,0
+354,Vitezslav Jaros,1,14,40,0
+355,Harvey Davies,1,14,40,0
+356,Virgil van Dijk,2,14,65,175
+357,Jeremie Frimpong,2,14,55,63
+358,Milos Kerkez,2,14,55,85
+359,Joe Gomez,2,14,50,33
+360,Conor Bradley,2,14,50,42
+361,Wellity Lucky,2,14,40,0
+362,Jeremy Jacquet,2,14,50,0
+363,Giovanni Leoni,2,14,40,0
+364,Kostas Tsimikas,2,14,50,0
+365,Calvin Ramsay,2,14,40,0
+366,Florian Wirtz,3,14,75,125
+367,Cody Gakpo,3,14,70,131
+368,Dominik Szoboszlai,3,14,70,160
+369,Rio Ngumoha,3,14,60,43
+370,Federico Chiesa,3,14,55,37
+371,Ryan Gravenberch,3,14,60,144
+372,Alexis Mac Allister,3,14,55,108
+373,Curtis Jones,3,14,55,81
+374,Endo Wataru,3,14,50,12
+375,Trey Nyoni,3,14,50,6
+376,Stefan Bajčetić Maquieira,3,14,50,0
+377,Victor Munoz,3,14,65,0
+378,James McConnell,3,14,45,0
+379,Alexander Isak,4,14,90,41
+380,Hugo Ekitiké,4,14,75,125
+381,Lewis Koumas,3,14,50,0
+382,Jayden Danns,4,14,45,0
+383,Harvey Elliott,3,14,55,5
+238,Jack Grealish,3,15,65,79
+384,Gianluigi Donnarumma,1,15,55,135
+385,James Trafford,1,15,50,13
+386,Marcus Bettinelli,1,15,45,0
+387,Nico O'Reilly,2,15,65,160
+388,Marc Guéhi,2,15,60,179
+389,Matheus Nunes,2,15,60,154
+390,Rúben dos Santos Gato Alves Dias,2,15,55,113
+391,Joško Gvardiol,2,15,55,79
+392,Rayan Aït-Nouri,2,15,55,60
+393,Abdukodir Khusanov,2,15,55,67
+394,Max Alleyne,2,15,50,5
+395,Rico Lewis,2,15,45,19
+396,Vitor de Oliveira Nunes dos Reis,2,15,45,0
+397,Antoine Semenyo,3,15,85,202
+398,Phil Foden,3,15,70,131
+399,Rayan Cherki,3,15,75,135
+400,Jérémy Doku,3,15,75,120
+401,Omar Marmoush,4,15,70,56
+402,Rodrigo 'Rodri' Hernandez Cascante,3,15,65,69
+403,Sávio Moreira de Oliveira,3,15,65,43
+404,Tijjani Reijnders,3,15,60,92
+405,Nico González Iglesias,3,15,55,63
+406,Mateo Kovačić,3,15,55,9
+407,Claudio Echeverri,3,15,50,0
+408,Kalvin Phillips,3,15,50,0
+409,Divine Mukasa,3,15,45,2
+410,Jeremy Monga,3,15,50,0
+411,Erling Haaland,4,15,155,239
+481,Elliot Anderson,3,15,65,180
+43,Youri Tielemans,3,16,60,68
+162,Andrey Nascimento dos Santos,3,16,50,47
+325,Karl Darlow,1,16,45,71
+412,Senne Lammens,1,16,50,109
+413,Altay Bayındır,1,16,45,11
+414,Tom Heaton,1,16,40,0
+415,Patrick Dorgu,3,16,60,95
+416,Matthijs de Ligt,2,16,50,43
+417,Diogo Dalot Teixeira,2,16,50,111
+418,Harry Maguire,2,16,50,90
+419,Lisandro Martínez,2,16,50,51
+420,Leny Yoro,2,16,50,56
+421,Ayden Heaven,2,16,45,42
+422,Noussair Mazraoui,2,16,45,53
+423,Luke Shaw,2,16,45,113
+424,Harry Amass,2,16,40,0
+425,Tyler Fredricson,2,16,40,1
+426,Bruno Borges Fernandes,3,16,120,235
+427,Bryan Mbeumo,3,16,80,148
+428,Matheus Santos Carneiro da Cunha,3,16,80,143
+429,Marcus Rashford,3,16,70,0
+430,Mason Mount,3,16,55,58
+431,Amad Diallo,3,16,60,91
+432,Kobbie Mainoo,3,16,55,73
+433,Manuel Ugarte Ribeiro,3,16,50,38
+434,Jack Fletcher,3,16,50,3
+435,Shea Lacey,3,16,50,3
+436,Toby Collyer,3,16,50,0
+437,Bendito Mantato,3,16,45,1
+438,Tyler Fletcher,3,16,45,2
+439,Benjamin Sesko,4,16,70,111
+440,Joshua Zirkzee,4,16,55,42
+441,Chido Obi,4,16,45,0
+442,Nick Pope,1,17,50,96
+443,Mark Gillespie,1,17,45,0
+444,Ewen Jaouen,1,17,45,0
+445,Malick Thiaw,2,17,50,126
+446,Fabian Schär,2,17,50,51
+447,Sven Botman,2,17,50,89
+448,Dan Burn,2,17,50,93
+449,Lewis Hall,2,17,50,79
+450,Tino Livramento,2,17,50,59
+451,Alex Murphy,2,17,40,2
+452,Bruno Guimarães Rodriguez Moura,3,17,70,154
+453,Harvey Barnes,3,17,60,106
+454,Anthony Elanga,3,17,60,48
+456,Jacob Ramsey,3,17,50,62
+457,Jacob Murphy,3,17,60,82
+458,Joelinton Cássio Apolinário de Lira,3,17,55,73
+459,Lewis Miley,3,17,55,72
+460,Joe Willock,3,17,50,38
+461,Bazoumana Touré,3,17,60,0
+462,Sean Steur,3,17,50,0
+463,Nick Woltemade,4,17,60,108
+464,Yoane Wissa,4,17,60,27
+465,William Osula,4,17,60,76
+466,Sean Neave,4,17,45,1
+559,Aladji Bamba,3,17,50,0
+567,Lukás Hornícek,1,17,50,0
+467,Matz Sels,1,18,50,105
+468,John Victor Maciel Furtado,1,18,45,11
+469,Neco Williams,2,18,50,128
+470,Felipe Rodrigues da Silva,2,18,50,53
+471,Nikola Milenković,2,18,55,119
+472,Murillo Costa dos Santos,2,18,55,83
+473,Ola Aina,2,18,45,67
+474,Jair Paula da Cunha Filho,2,18,45,13
+475,Nicolò Savona,2,18,45,39
+476,Omar Richards,2,18,40,0
+477,Zach Abbott,2,18,40,3
+478,Luca Netz,2,18,45,11
+479,Tyler Bindon,2,18,40,0
+480,Morgan Gibbs-White,3,18,80,188
+482,Callum Hudson-Odoi,3,18,60,88
+483,Dan Ndoye,3,18,55,50
+484,Omari Hutchinson,3,18,55,82
+485,Dilane Bakwa,3,18,55,26
+486,James McAtee,3,18,55,17
+487,Nicolás Domínguez,3,18,50,48
+488,Ibrahim Sangaré,3,18,50,89
+489,Ryan Yates,3,18,45,30
+490,Chris Wood,4,18,60,41
+491,Igor Jesus Maciel da Cruz,4,18,60,114
+492,Taiwo Awoniyi,4,18,55,43
+493,Arnaud Kalimuendo,4,18,55,9
+558,Xaver Schlager,3,18,50,0
+112,Jan Paul van Hecke,2,19,50,148
+455,Sandro Tonali,3,19,55,81
+494,Guglielmo Vicario,1,19,45,90
+495,Brandon Austin,1,19,40,0
+496,Antonín Kinský,1,19,45,20
+497,Martin Dubravka,1,19,40,96
+498,Marcos Senesi Barón,2,19,60,175
+499,Pedro Porro Sauceda,2,19,55,117
+500,Cristian Romero,2,19,50,91
+501,Kevin Danso,2,19,50,63
+502,Andrew Robertson,2,19,45,55
+503,Micky van de Ven,2,19,50,116
+505,Djed Spence,2,19,45,78
+506,Destiny Udogie,2,19,45,29
+507,Ashley Phillips,2,19,45,0
+508,Ben Davies,2,19,40,10
+509,Jun'ai Byfield,2,19,40,1
+510,James Rowswell,2,19,40,1
+511,João Victor de Souza Menezes,2,19,40,3
+512,Mohammed Kudus,3,19,65,75
+513,Xavi Simons,3,19,60,80
+514,Mathys Tel,3,19,60,78
+515,James Maddison,3,19,65,3
+516,Rodrigo Bentancur,3,19,55,86
+517,Wilson Odobert,3,19,55,46
+518,Pape Matar Sarr,3,19,50,71
+519,Conor Gallagher,3,19,55,44
+520,Lucas Bergvall,3,19,55,49
+521,Dejan Kulusevski,3,19,65,0
+522,Archie Gray,3,19,50,61
+523,Mikey Moore,3,19,50,0
+524,Callum Olusesi,3,19,45,1
+525,Mateus Fernandes,3,19,60,135
+526,Dominic Solanke-Mitchell,4,19,60,40
+527,Richarlison de Andrade,4,19,60,119
+528,Dane Scarlett,4,19,45,2
+529,Robin Roefs,1,20,50,136
+530,Anthony Patterson,1,20,40,0
+531,Melker Ellborg,1,20,45,16
+532,Daniel Ballard,2,20,50,116
+533,Nordi Mukiele,2,20,55,151
+534,Trai Hume,2,20,45,110
+535,Omar Alderete,2,20,50,125
+536,Reinildo Mandava,2,20,45,74
+537,Jenson Seelt,2,20,45,2
+538,Leo Fuhr Hjelde,2,20,40,0
+539,Luke O'Nien,2,20,40,26
+540,Arthur Masuaku,2,20,40,1
+541,Thomas Meunier,2,20,45,0
+542,Enzo Le Fée,3,20,60,147
+543,Habib Diarra,3,20,55,65
+544,Granit Xhaka,3,20,55,124
+545,Noah Sadiki,3,20,50,80
+546,Simon Adingra,3,20,50,34
+547,Romaine Mundle,3,20,50,14
+548,Chris Rigg,3,20,50,36
+549,Chemsdine Talbi,3,20,55,83
+550,Djiamgone Jocelin Ta Bi,3,20,50,1
+551,Nilson Angulo,3,20,50,13
+552,Brian Brobbey,4,20,60,92
+553,Wilson Isidor,4,20,55,74
