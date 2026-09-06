@@ -1,14 +1,17 @@
 import argparse
+
 import polars as pl
 import pulp
+
+from myfpl.team_state import TeamState
 
 
 def solve_fpl_ilp(
     matrix_csv: str = "expected_points_matrix.csv",
-    starting_bank: float = 100.0,  # Total starting budget in £ millions
+    starting_bank: float = 100.0,  # Pre-season draft budget in £ millions (ignored if team_state given)
     horizon_length: int | None = None,  # Number of gameweeks (None = full matrix)
     max_banked_transfers: int = 5,  # Up to 5 banked transfers
-    initial_squad_ids: list[int] = None,  # None triggers Pre-Season Draft mode
+    team_state: TeamState | None = None,  # None triggers Pre-Season Draft mode
     time_limit: int = 60,  # Solver timeout in seconds
 ):
     print("--- 1. Loading Expected Value Matrix ---")
@@ -52,8 +55,18 @@ def solve_fpl_ilp(
     I = players
     Clubs = list(set(team_id.values()))
 
-    # Conversion of budget to integer tenths
-    B_0 = int(round(starting_bank * 10))
+    # Owned players sell at their held selling_price; everyone else sells at current price
+    owned_selling_price = (
+        {m.player_id: m.selling_price for m in team_state.squad}
+        if team_state is not None
+        else {}
+    )
+    sell_price = {i: owned_selling_price.get(i, price[i]) for i in I}
+
+    # Cash in the bank before GW1: real bank mid-season, full budget for a pre-season draft
+    initial_bank = (
+        team_state.bank if team_state is not None else int(round(starting_bank * 10))
+    )
 
     print(
         f"Loaded {len(I)} players across {len(T)} gameweeks ({gw_cols[0]} to {gw_cols[-1]})."
@@ -103,7 +116,10 @@ def solve_fpl_ilp(
     print("--- 4. Adding Constraints ---")
 
     # Initial State at t=0
-    x_0 = {i: (1 if (initial_squad_ids and i in initial_squad_ids) else 0) for i in I}
+    owned_ids = (
+        {m.player_id for m in team_state.squad} if team_state is not None else set()
+    )
+    x_0 = {i: (1 if i in owned_ids else 0) for i in I}
 
     for t in T:
         # 1. Squad Mass-Balance & Mutual Exclusivity
@@ -143,26 +159,31 @@ def solve_fpl_ilp(
             prob += c[i, t] <= y[i, t]
         prob += pulp.lpSum(c[i, t] for i in I) == 1
 
-        # 5. Budget Conservation
-        prob += pulp.lpSum(price[i] * x[i, t] for i in I) + Bank[t] == B_0
+        # 5. Budget Conservation (cash-flow: sells add money, buys spend it)
+        prev_bank = initial_bank if t == 1 else Bank[t - 1]
+        prob += Bank[t] == (
+            prev_bank
+            + pulp.lpSum(sell_price[i] * v[i, t] for i in I)
+            - pulp.lpSum(price[i] * u[i, t] for i in I)
+        )
 
         # 6. Transfer Rollover & Hit Mechanics
         prob += K[t] == pulp.lpSum(u[i, t] for i in I)
         prob += S[t] <= max_banked_transfers
 
         if t == 1:
-            if initial_squad_ids is None:
+            if team_state is None:
                 # Pre-season draft mode
                 prob += H[1] == 0
                 prob += S[1] == 0
             else:
-                prob += K[1] + S[1] + w[1] - H[1] == 0 + 1
+                prob += K[1] + S[1] + w[1] - H[1] == team_state.free_transfers
         else:
             prob += K[t] + S[t] + w[t] - H[t] == S[t - 1] + 1
 
     print("--- 5. Solving Integer Linear Program ---")
     # Configured with status output (msg=True) and early exit limits
-    solver = pulp.PULP_CBC_CMD(msg=True, timeLimit=time_limit)
+    solver = pulp.PULP_CBC_CMD(msg=False, timeLimit=time_limit)
     status = prob.solve(solver)
 
     print(f"\nSolver Status: {pulp.LpStatus[status]}")
@@ -187,7 +208,7 @@ def solve_fpl_ilp(
         buys = [web_name[i] for i in I if u[i, t].varValue > 0.5]
         sells = [web_name[i] for i in I if v[i, t].varValue > 0.5]
 
-        if t == 1 and initial_squad_ids is None:
+        if t == 1 and team_state is None:
             print("Action: Pre-Season Draft Assembled")
         else:
             print(f"Transfers In  ({len(buys)}): {', '.join(buys) if buys else 'None'}")
@@ -238,18 +259,46 @@ if __name__ == "__main__":
         "--bank",
         type=float,
         default=100.0,
-        help="Starting bank in £m (default: 100.0).",
+        help="Pre-season draft budget in £m (default: 100.0). Ignored in mid-season mode.",
     )
     parser.add_argument(
         "--time-limit",
         type=int,
         help="Solver time limit in seconds (default: None).",
     )
+    parser.add_argument(
+        "--draft",
+        action="store_true",
+        help="Run a pre-season draft. Mutually exclusive with --team-state-json.",
+    )
+    parser.add_argument(
+        "--team-state-json",
+        type=str,
+        default="team_state.json",
+        help="Path to a TeamState JSON file (produced by scripts/fetch_team_state.py, or hand-authored) to resume mid-season. Mutually exclusive with --draft.",
+    )
 
     args = parser.parse_args()
+
+    if args.draft:
+        print("Mode: pre-season draft.")
+        resumed_team_state = None
+    else:
+        from pathlib import Path
+
+        team_state_path = Path(args.team_state_json)
+        if not team_state_path.exists():
+            parser.error(
+                f"'{team_state_path}' not found. Run scripts/fetch_team_state.py first, "
+                "pass --team-state-json <path>, or use --draft for a pre-season draft."
+            )
+        print(f"Mode: mid-season from '{team_state_path}'.")
+        resumed_team_state = TeamState.model_validate_json(team_state_path.read_text())
+
     solve_fpl_ilp(
         matrix_csv=args.matrix,
         starting_bank=args.bank,
         horizon_length=args.horizon,
+        team_state=resumed_team_state,
         time_limit=args.time_limit,
     )

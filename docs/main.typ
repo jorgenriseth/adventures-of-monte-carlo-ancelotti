@@ -119,3 +119,65 @@ $ S_t >= 0, quad H_t >= 0, quad w_t >= 0 quad forall t in T $
 When running a pre-season draft ($x_(i,0) = 0$), initial squad building transfers are free:
 $ H_1 = 0 $
 $ S_1 = S_0 $
+
+= Statistical Prediction Model
+
+To generate the expected points matrix $E_(i,t)$ for the optimization horizon, we model player performance using a one-parameter scaled Negative Binomial Generalized Linear Model (GLM). Rather than learning baseline player quality from raw situational features, we treat historical averages as a known exposure (offset) and strictly isolate the multiplicative effect of the Fixture Difficulty Rating (FDR).
+
+== Historical Baseline and The Offset
+Let $Y_(i,m)$ denote the actual points scored by player $i$ in a historical match $m$. We define the player's intrinsic quality, $lambda_i$, as their historical average points per gameweek.
+
+We assume the points follow a Negative Binomial distribution to account for overdispersion in FPL scoring:
+$ Y_(i,m) tilde "NB"(mu_(i,m), alpha) $
+where $mu_(i,m)$ is the expected mean and $alpha$ is the estimated dispersion parameter.
+
+To map the baseline quality to the fixture difficulty, we utilize a log-link function. We treat $log(lambda_i)$ as a fixed offset (coefficient of $1$). Furthermore, since an FDR of 3 represents a neutral fixture that should not alter the baseline, we center the continuous FDR variable around 3:
+$ log(mu_(i,m)) = log(lambda_i) + beta dot ("FDR"_(i,m) - 3) $
+The model is trained on historical data to estimate a single global parameter, $beta$. Because the FDR is centered, an FDR of 3 evaluates to $exp(0) = 1$, leaving the baseline untouched.
+
+== Cross-Season Mapping and the Cold Start Problem
+To apply this model to a new season, we must resolve two data discontinuities:
++ *ID Drift:* Historical $lambda_i$ values are mapped to the new season's FPL API universe using the persistent, hidden player photographic ID (`code`), safely overriding the volatile seasonal `player_id`.
++ *New Arrivals (Cold Start):* For newly promoted or transferred players lacking a historical $lambda_i$, we impute their baseline using a Price-Position Heuristic. Let $P_i$ be the starting price of a new player in position $p$. Their baseline is imputed as the mean historical $lambda$ of all established players belonging to the same position and price bucket:
+  $ lambda_i = "mean"({ lambda_j | j in I_p, P_j = P_i, lambda_j "is known" }) $
+
+== Bias Elimination and GLM Fitting Mechanics
+In models utilizing a log-link function, any $lambda_i <= 0$ results in an undefined mathematical domain. Naively applying a small constant $epsilon$ to inactive players introduces severe biases: it artificially shrinks $beta$ toward zero during training (attenuation bias) and awards fractional phantom points to non-playing assets during projection.
+
+To eliminate these biases, we decouple the populations:
+- *Training Phase:* The GLM is fitted strictly on historical records where the player recorded $>0$ minutes, ensuring $lambda_i > 0$ and isolating the true fixture impact.
+- *Projection Phase:* We bypass the GLM entirely for non-playing assets.
+
+== Expected Value Projection
+The expected points matrix for the upcoming optimization horizon $T$ is defined as a piecewise function, shielding the solver from phantom points:
+
+$
+  E_(i,t) = cases(
+    0 & "if" lambda_i <= 0,
+    lambda_i dot exp(beta dot ("FDR"_(i,t) - 3)) & "if" lambda_i > 0
+  )
+$
+
+
+== Bias Elimination and GLM Fitting Mechanics
+
+In models utilizing a log-link function, the offset requires computing $log(lambda_i)$. Because FPL players can average exactly zero points (if they never play) or negative points, any $lambda_i <= 0$ results in an undefined mathematical domain.
+
+Naively applying a small constant $epsilon$ (e.g., $lambda'_i = max(lambda_i, epsilon)$) to the entire dataset introduces two severe biases:
++ *Training Attenuation Bias:* If thousands of inactive bench players are fed into the training set with a flat $epsilon$ expected value regardless of fixture difficulty, the GLM will artificially shrink the scaling parameter $beta$ toward zero, mathematically concluding that fixtures have little impact.
++ *Prediction Bias:* During projection, the solver might incorrectly assign fractional points to "bench fodder" players, prompting the optimizer to favor them over equal-priced alternatives simply due to phantom epsilon scaling.
+
+To eliminate these biases, we decouple the training and prediction populations:
+
+*Training Phase (Active Matches Only):*
+The GLM is fitted strictly on historical records where the player recorded $>0$ minutes. This naturally guarantees $lambda_i > 0$ and ensures $beta$ is learned exclusively from meaningful matches where fixture difficulty actually impacts performance.
+
+*Projection Phase (Deterministic Bypass):*
+During the generation of the expected points matrix, we bypass the GLM entirely for non-playing assets. The final projection is defined as a piecewise function, shielding the solver from fractional phantom points:
+
+$
+  E_(i,t) = cases(
+    0 & "if" lambda_i <= 0,
+    lambda_i dot exp(beta dot "FDR"_(i,t)) & "if" lambda_i > 0
+  )
+$

@@ -9,6 +9,7 @@ from fpl_api_models.game_config import (
 )
 from fpl_api_models.game_settings import GameSettings
 from fpl_api_models.gameweeks import GameWeek
+from fpl_api_models.manager import MyTeam, MyTeamPick, MyTeamTransfers
 from fpl_api_models.phases import Phase
 from fpl_api_models.player_stats import PlayerStat
 from fpl_api_models.players import Element, Player, PriceChangeProjection
@@ -23,6 +24,9 @@ __all__ = [
     "GameConfigSettings",
     "GameSettings",
     "GameWeek",
+    "MyTeam",
+    "MyTeamPick",
+    "MyTeamTransfers",
     "Overrides",
     "Phase",
     "Player",
