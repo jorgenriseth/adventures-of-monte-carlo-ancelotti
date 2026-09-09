@@ -40,6 +40,9 @@ myfpl = { path = ".", editable = true }
 jupyter = ">=1.1.1,<2"
 notebook = ">=7.6.2,<8"
 
+[tool.uv.workspace]
+members = ["fpl-db"]
+
 [dependency-groups]
 dev = [
     "black>=26.5.1",
