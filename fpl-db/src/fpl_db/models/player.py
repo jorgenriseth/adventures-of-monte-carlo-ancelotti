@@ -10,4 +10,4 @@ class Player(Base):
     code: Mapped[int] = mapped_column(primary_key=True)
     web_name: Mapped[str] = mapped_column(nullable=False)
     full_name: Mapped[str] = mapped_column(nullable=False)
-    element_type: Mapped[Position] = mapped_column(PositionType, nullable=False)
+    position: Mapped[Position] = mapped_column(PositionType, nullable=False)
