@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from fpl_db.base import Base
 
 
-class PlayerPerformance(Base):
+class PlayerMatchPerformance(Base):
     __tablename__ = "player_performances"
     __table_args__ = (UniqueConstraint("player_code", "fixture_id"),)
     id: Mapped[int] = mapped_column(primary_key=True)
