@@ -6,6 +6,8 @@ dist/
 wheels/
 *.egg-info
 
+.ipynb_checkpoints/
+
 # Virtual environments
 .venv
 # pixi environments
@@ -14,3 +16,6 @@ wheels/
 
 # FPL login credentials
 .env
+.env*
+!.env.example
+data

@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "fpl-db",
     "matplotlib>=3.11.1",
     "numpy>=2.5.2",
     "pandas>=3.0.5",
@@ -33,6 +34,10 @@ platforms = ["osx-arm64"]
 
 [tool.pixi.pypi-dependencies]
 myfpl = { path = ".", editable = true }
+fpl-db = { path = "fpl-db", editable = true }
+
+[tool.uv.sources]
+fpl-db = { workspace = true }
 
 [tool.pixi.tasks]
 
@@ -46,4 +51,8 @@ members = ["fpl-db"]
 [dependency-groups]
 dev = [
     "black>=26.5.1",
+    "pytest>=8.4.2",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

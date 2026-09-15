@@ -1,7 +1,7 @@
 [project]
 name = "fpl-db"
 version = "0.1.0"
-description = "Add your description here"
+description = "Package for managing a relational database holding historic data and data about upcoming fixtures in fantasy premier league."
 readme = "README.md"
 authors = [
     { name = "Jørgen Riseth", email = "jnriseth@gmail.com" }

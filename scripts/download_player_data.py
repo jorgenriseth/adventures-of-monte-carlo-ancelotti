@@ -4,22 +4,10 @@ from pathlib import Path
 
 import polars as pl
 
-from myfpl.constants import URL_VASTAAV_FPL_DATA, DATA_DIR
+from myfpl.constants import URL_VASTAAV_FPL_DATA, DATA_DIR, SEASONS
 
 
 # %%
-SEASONS = (
-    "2016-17",
-    "2017-18",
-    "2018-19",
-    "2019-20",
-    "2020-21",
-    "2021-22",
-    "2022-23",
-    "2023-24",
-    "2024-25",
-    "2025-26",
-)
 Path(DATA_DIR).mkdir(parents=True, exist_ok=True)
 for season in SEASONS:
     response = requests.get(f"{URL_VASTAAV_FPL_DATA}/{season}/players_raw.csv")

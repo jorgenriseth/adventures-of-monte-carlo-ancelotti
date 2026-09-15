@@ -572,6 +572,7 @@ name = "myfpl"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "fpl-db" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
@@ -587,10 +588,12 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "black" },
+    { name = "pytest" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "fpl-db", editable = "fpl-db" },
     { name = "matplotlib", specifier = ">=3.11.1" },
     { name = "numpy", specifier = ">=2.5.2" },
     { name = "pandas", specifier = ">=3.0.5" },
@@ -604,7 +607,10 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "black", specifier = ">=26.5.1" }]
+dev = [
+    { name = "black", specifier = ">=26.5.1" },
+    { name = "pytest", specifier = ">=8.4.2" },
+]
 
 [[package]]
 name = "mypy-extensions"
