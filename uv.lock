@@ -589,6 +589,8 @@ dependencies = [
 dev = [
     { name = "black" },
     { name = "pytest" },
+    { name = "ruff" },
+    { name = "ty" },
 ]
 
 [package.metadata]
@@ -610,6 +612,8 @@ requires-dist = [
 dev = [
     { name = "black", specifier = ">=26.5.1" },
     { name = "pytest", specifier = ">=8.4.2" },
+    { name = "ruff", specifier = ">=0.16.6" },
+    { name = "ty", specifier = ">=0.0.79" },
 ]
 
 [[package]]

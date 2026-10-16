@@ -13,6 +13,7 @@ def solve_fpl_ilp(
     max_banked_transfers: int = 5,  # Up to 5 banked transfers
     team_state: TeamState | None = None,  # None triggers Pre-Season Draft mode
     time_limit: int = 60,  # Solver timeout in seconds
+    wildcard_gw: int | None = None,  # Real GW number (e.g. 8) where Wildcard is played
 ):
     print("--- 1. Loading Expected Value Matrix ---")
     df = pl.read_csv(matrix_csv)
@@ -31,6 +32,18 @@ def solve_fpl_ilp(
         print(f"No horizon specified: Using full matrix ({len(gw_cols)} gameweeks).")
 
     T = list(range(1, len(gw_cols) + 1))
+
+    # Resolve the real-world wildcard gameweek to its position in this horizon
+    wildcard_t = None
+    if wildcard_gw is not None:
+        wildcard_col = f"GW{wildcard_gw}"
+        if wildcard_col not in gw_cols:
+            raise ValueError(
+                f"--wildcard-gw {wildcard_gw} is outside the optimized horizon "
+                f"({gw_cols[0]}-{gw_cols[-1]})."
+            )
+        wildcard_t = gw_cols.index(wildcard_col) + 1
+        print(f"Wildcard active: {wildcard_col} (hits waived, transfers unlimited).")
 
     # Scale prices to integers (tenths of a million, e.g., £10.0m = 100)
     df = df.with_columns((pl.col("now_cost")).cast(pl.Int64).alias("price"))
@@ -176,8 +189,16 @@ def solve_fpl_ilp(
                 # Pre-season draft mode
                 prob += H[1] == 0
                 prob += S[1] == 0
+            elif t == wildcard_t:
+                # Wildcard bypasses the free-transfer counter entirely: no hits,
+                # and the banked-transfer rollover accrues as if K[1] were 0.
+                prob += H[1] == 0
+                prob += S[1] + w[1] == team_state.free_transfers
             else:
                 prob += K[1] + S[1] + w[1] - H[1] == team_state.free_transfers
+        elif t == wildcard_t:
+            prob += H[t] == 0
+            prob += S[t] + w[t] == S[t - 1] + 1
         else:
             prob += K[t] + S[t] + w[t] - H[t] == S[t - 1] + 1
 
@@ -200,8 +221,9 @@ def solve_fpl_ilp(
         gw_hit_cost = int(H[t].varValue) * 4
         gw_net_ev = gw_gross_ev - gw_hit_cost
 
+        wildcard_tag = " [WILDCARD]" if t == wildcard_t else ""
         print(f"==========================================")
-        print(f"            {gw_name} PLAN")
+        print(f"            {gw_name} PLAN{wildcard_tag}")
         print(f"    Expected Points: {gw_gross_ev:.2f} (Net: {gw_net_ev:.2f})")
         print(f"==========================================")
 
@@ -215,9 +237,12 @@ def solve_fpl_ilp(
             print(
                 f"Transfers Out ({len(sells)}): {', '.join(sells) if sells else 'None'}"
             )
-            print(
-                f"Hits Taken: {int(H[t].varValue)} (-{gw_hit_cost} pts) | Banked FTs: {int(S[t].varValue)}"
-            )
+            if t == wildcard_t:
+                print("Hits Taken: 0 (Wildcard active, free transfers unaffected)")
+            else:
+                print(
+                    f"Hits Taken: {int(H[t].varValue)} (-{gw_hit_cost} pts) | Banked FTs: {int(S[t].varValue)}"
+                )
 
         starters = [i for i in I if y[i, t].varValue > 0.5]
         bench = [i for i in I if (x[i, t].varValue > 0.5 and y[i, t].varValue <= 0.5)]
@@ -277,6 +302,12 @@ if __name__ == "__main__":
         default="team_state.json",
         help="Path to a TeamState JSON file (produced by scripts/fetch_team_state.py, or hand-authored) to resume mid-season. Mutually exclusive with --draft.",
     )
+    parser.add_argument(
+        "--wildcard-gw",
+        type=int,
+        default=None,
+        help="Real gameweek number (e.g. 8) where the Wildcard chip is played: waives hits and lets transfers roll over as if none were made that week.",
+    )
 
     args = parser.parse_args()
 
@@ -301,4 +332,5 @@ if __name__ == "__main__":
         horizon_length=args.horizon,
         team_state=resumed_team_state,
         time_limit=args.time_limit,
+        wildcard_gw=args.wildcard_gw,
     )

@@ -7,13 +7,13 @@ gameweek, then solves for an optimal squad over a rolling horizon.
 ## Usage
 
 ```bash
-# 1. Rebuild the data pipeline (historical training data, live player universe, upcoming fixtures)
+# 1. Fetch raw data (historical match logs, current player fields, upcoming fixtures)
 uv run scripts/fetch_fpl_data.py
 
-# 2. Refit the FDR scaling GLM parameters from historical data
+# 2. Refit the FDR scaling GLM parameters from historical match logs
 uv run scripts/train_fdr_model.py
 
-# 3. Project expected points per player per gameweek
+# 3. Build the live player universe (lambda_i) and project expected points per gameweek
 uv run scripts/predict_expected_points.py
 
 # 4. Fetch your current team state (bank, squad, free transfers) and save it to team_state.json
@@ -22,6 +22,11 @@ uv run scripts/fetch_team_state.py --manager-id 2872027
 # 5. Optimize starting from that saved team state
 uv run scripts/optimize_fpl_squad.py --horizon 5
 ```
+
+Steps 1-3 can be run as a single command via `uv run scripts/run_pipeline.py`.
+`predict_expected_points.py` warns if the data fetched in step 1 is more than a
+few hours old, since `chance_of_playing_next_round` and other live fields go
+stale quickly.
 
 Or for a pre-season draft instead of an existing squad (skips step 4):
 
